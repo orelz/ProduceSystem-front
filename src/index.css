@@ -43,11 +43,6 @@ body {
   margin-top: 30px;
 }
 
-/* Body -> Modal */
-.modal-content {
-  background-color: #eef0f2;
-}
-
 /* Footer */
 .div-footer {
   height: 5%;
@@ -66,34 +61,3 @@ body {
 
 /* create produce form */
 
-form {
-  height: 95%;
-  border: solid 1px rgb(185, 178, 178);
-  border-radius: 25px;
-  margin-top: 10px;
-}
-.form-title-page {
-  margin-top: 10px;
-  margin-bottom: 50px;
-}
-.form-row {
-  margin-bottom: 20px;
-}
-.form-input {
-  width: 400px;
-}
-.form-select {
-  width: 150px;
-}
-.form-checkbox {
-  width: 50px;
-}
-
-#floatingTextarea2 {
-  height: 450px;
-  width: 90%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 35px;
-}

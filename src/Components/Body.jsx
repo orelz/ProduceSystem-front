@@ -6,14 +6,10 @@ import OtherTables from "./Tabels/OtherTables";
 
 function Body() {
   return (
-    <div className="div-body">
+    <div className="div-body" dir="rtl">
       <Container className="con-body">
         <Row className="row-body">
           <Col>
-            {/* ------------- Modal Add Produce ------------------ */}
-            {/* <AddProduceModel /> */}
-            {/* ------------- /Modal Add Produce ------------------ */}
-
             {/* ------------- Produce Table ------------------ */}
             <div className="table-component">
               <ImportentProduces />
@@ -24,7 +20,6 @@ function Body() {
             <div className="table-component">
               <OtherTables />
             </div>
-
             {/* ------------- /Produce Table ------------------ */}
           </Col>
         </Row>

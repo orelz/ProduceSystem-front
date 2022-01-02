@@ -1,6 +1,7 @@
-import { Box, Button, Modal } from '@material-ui/core';
+import { Box, Button, IconButton, Modal, Tooltip } from '@material-ui/core';
 import React, { useState } from 'react';
-import Test from './Test';
+import AddProduceForm from './AddProduceForm';
+import { AddBox } from '@material-ui/icons';
 
 
 const style = {
@@ -8,14 +9,15 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 1000,
+    width: 900,
+    height:1000,
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
-    p: 10,
+    p: 5,
   };
 
-function ModalTest() {
+function ModalAddProduce() {
 
     const [open, setOpen] =useState(false);
     const handleOpen = () => setOpen(true);
@@ -23,8 +25,12 @@ function ModalTest() {
 
     return (  
         <div>
+<Tooltip title="הוספת נוהל חדש" >
+  <IconButton>
+    <AddBox color='primary' fontSize='large' onClick={handleOpen}/>
+  </IconButton>
+</Tooltip>
 
-<Button onClick={handleOpen}>Open modal</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -32,7 +38,7 @@ function ModalTest() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Test />
+          <AddProduceForm className="test" />
         </Box>
       </Modal>
 
@@ -40,4 +46,4 @@ function ModalTest() {
      );
 }
 
-export default ModalTest;
+export default ModalAddProduce;

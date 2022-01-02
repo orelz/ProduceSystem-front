@@ -1,17 +1,16 @@
+import { Box, Container } from "@material-ui/core";
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import AddProduceModel from "./AddProduceModel";
-import ModalTest from "./Forms/ModalTest";
+import { Col, Row } from "react-bootstrap";
+import ModalAddProduce from "./Forms/ModalAddProduce";
 
 function Header() {
   return (
     <div className="div-header">
       <Container className="con-header">
-        <Row className="row-header">
+        <Box sx={{backgroundColor:"#0d21a1"}}>
           <Col>מערכת נהלים- מחלקת ניתוחים</Col>
-          {/* <AddProduceModel className="add-produce-button" /> */}
-          <ModalTest />
-        </Row>
+          <ModalAddProduce />
+        </Box>
       </Container>
     </div>
   );
