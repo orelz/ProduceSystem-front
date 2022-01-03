@@ -1,15 +1,29 @@
+import { AppBar, Box, Toolbar, Typography } from "@material-ui/core";
+import { blue } from "@material-ui/core/colors";
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+
+
 
 function Footer() {
-  return (
-    <div className= "div-footer">
-      <Container className="con-footer">
-        <Row className="row-footer">
-          <Col>כל הזכויות שמורות - אגף תביעות בריאות</Col>
-        </Row>
-      </Container>
-    </div>
+  const primary = blue[900];
+  return ( 
+      <div>
+          <Box sx={{flexGrow:1}}>
+              <AppBar position='static' color="primary">
+                  <Toolbar>
+                      <Typography variant='h6'
+                       component="div"
+                       style={{
+                           marginLeft:"auto",
+                           marginRight:"auto"
+                       }}
+                       >
+                          כל הזכויות שמורות
+                      </Typography>
+                  </Toolbar>
+              </AppBar>
+          </Box>
+      </div>
   );
 }
 

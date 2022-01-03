@@ -1,27 +1,9 @@
 body {
   height: 100%;
   background-color: #dee2e6;
-  
 }
 
 /* Header */
-.div-header {
-  height: 10%;
-}
-
-.con-header {
-  height: 100%;
-}
-
-.row-header {
-  height: 100%;
-  background-color: #0d21a1;
-  color: white;
-  text-align: center;
-  font-size: 35px;
-  padding-top: 1%;
-  border-radius: 25px 25px 0px 0px;
-}
 .add-produce-button{
   margin-right: 80%;
 }
@@ -31,32 +13,12 @@ body {
 .div-body {
   height: 85%;
 }
-.con-body {
-  height: 100%;
-}
-.row-body {
-  height: 100%;
-  background-color: #eef0f2;
-  overflow: scroll;
-}
 .table-component{
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 /* Footer */
-.div-footer {
-  height: 5%;
-}
-.con-footer {
-  height: 100%;
-}
-.row-footer {
-  height: 100%;
-  border-radius: 0px 0px 25px 25px;
-  background-color: #0d21a1;
-  color: white;
-  text-align: center;
-}
+
 
 
 /* create produce form */
