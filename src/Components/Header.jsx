@@ -13,7 +13,10 @@ function Header() {
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+        <AppBar position="static"
+        style={{
+          borderRadius:"25px 25px 0 0"
+        }}>
           <Toolbar>
             <Bookmarks />
             <Typography

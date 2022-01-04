@@ -23,3 +23,16 @@ body {
 
 /* create produce form */
 
+.div-form-inputs{
+  display: flex;
+}
+.text-field-form{
+  width: 350px;
+}
+.select-field-form{
+  width: 200px;
+}
+.typo-name-form{
+  width: 150px;
+}
+

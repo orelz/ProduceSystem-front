@@ -4,8 +4,6 @@ import {
   FormControl,
   FormControlLabel,
   FormLabel,
-  InputAdornment,
-  InputLabel,
   MenuItem,
   Radio,
   RadioGroup,
@@ -21,7 +19,7 @@ const theme = createTheme({
   direction: "rtl",
 });
 
-function AddProduceForm() {
+function EditProduceForm() {
   const [produceCategory, setProduceCategory] = React.useState("");
   const [produceHideOrActice, setProduceHideOrActice] = React.useState("");
 
@@ -39,7 +37,7 @@ function AddProduceForm() {
         <Container>
           <Stack spacing={5}>
             <Typography variant="h3" gutterBottom component="div" style={{alignSelf:"center"}}>
-              יצירת נוהל חדש
+              עדכון נוהל
             </Typography>
 
             <div className="div-form-inputs">
@@ -138,4 +136,4 @@ function AddProduceForm() {
   );
 }
 
-export default AddProduceForm;
+export default EditProduceForm;

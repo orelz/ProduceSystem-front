@@ -7,7 +7,7 @@ import { Box, Grid } from "@material-ui/core";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" dir="rtl">
       <Box
         sx={{
           display: "flex",
