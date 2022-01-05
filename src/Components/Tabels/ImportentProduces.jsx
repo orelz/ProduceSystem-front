@@ -1,11 +1,10 @@
-import { Button, SvgIcon, TextField } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import MaterialTable, { MTableToolbar } from "material-table";
-import DraftsSharpIcon from '@mui/icons-material/DraftsSharp';
-// import EditIcon from '@mui/icons-material/Edit';
-// import ArchiveIcon from '@mui/icons-material/Archive';
+import DraftsSharpIcon from "@mui/icons-material/DraftsSharp";
 import React from "react";
-import { ArchiveSharp, EditSharp } from "@material-ui/icons";
+import { ArchiveSharp } from "@material-ui/icons";
 import ModalEditProduce from "../Forms/ModalEditProduce ";
+import ReadProduceModal from "../Modal/ReadProduceModal";
 
 function ImportentProduces() {
   return (
@@ -26,7 +25,7 @@ function ImportentProduces() {
           {
             title: "תאריך הנוהל",
             field: "produceDate",
-            align:"center",
+            align: "center",
             width: "15%",
             headerStyle: { width: "10%" },
             cellStyle: { width: "10%" },
@@ -34,7 +33,7 @@ function ImportentProduces() {
           {
             title: "שם הנוהל",
             field: "produceName",
-            align:"center",
+            align: "center",
             width: "35%",
             headerStyle: { width: "30%" },
             cellStyle: { width: "30%" },
@@ -42,7 +41,7 @@ function ImportentProduces() {
           {
             title: "קטגוריה",
             field: "produceCategory",
-            align:"center",
+            align: "center",
             width: "15%",
             headerStyle: { width: "15%" },
             cellStyle: { width: "15%" },
@@ -50,7 +49,7 @@ function ImportentProduces() {
           {
             title: "מחבר הנוהל",
             field: "produceAuthor",
-            align:"center",
+            align: "center",
             width: "15%",
             headerStyle: { width: "15%" },
             cellStyle: { width: "15%" },
@@ -58,7 +57,7 @@ function ImportentProduces() {
           {
             title: "",
             field: "read",
-            align:"center",
+            align: "center",
             width: "1%",
             headerStyle: { width: "1%" },
             cellStyle: { width: "1%" },
@@ -66,7 +65,7 @@ function ImportentProduces() {
           {
             title: "",
             field: "edit",
-            align:"center",
+            align: "center",
             width: "1%",
             headerStyle: { width: "1%" },
             cellStyle: { width: "1%" },
@@ -74,7 +73,7 @@ function ImportentProduces() {
           {
             title: "",
             field: "delete",
-            align:"center",
+            align: "center",
             width: "1%",
             headerStyle: { width: "1%" },
             cellStyle: { width: "1%" },
@@ -86,7 +85,7 @@ function ImportentProduces() {
             produceName: "נוהל 1",
             produceCategory: "ניהולי",
             produceAuthor: "אוראל",
-            read: <DraftsSharpIcon />,
+            read: <ReadProduceModal />,
             edit: <ModalEditProduce />,
             delete: <ArchiveSharp />,
           },
@@ -119,7 +118,6 @@ function ImportentProduces() {
           showTitle: true,
           search: false,
           headerStyle: { backgroundColor: "#e5e5e5" },
-          // tableLayout: "fixed",
         }}
       />
     </div>

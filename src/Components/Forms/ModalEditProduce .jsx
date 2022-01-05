@@ -1,8 +1,5 @@
 import {
   Box,
-  Button,
-  IconButton,
-  makeStyles,
   Modal,
   Tooltip,
 } from "@material-ui/core";
@@ -31,7 +28,7 @@ function ModalEditProduce() {
   return (
     <div>
       <Tooltip title="עדכון נוהל">
-        <EditSharp fontSize="large" onClick={handleOpen} />
+        <EditSharp fontSize="medium" onClick={handleOpen} />
       </Tooltip>
 
       <Modal

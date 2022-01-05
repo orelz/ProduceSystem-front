@@ -7,6 +7,9 @@ body {
 .add-produce-button{
   margin-right: 80%;
 }
+.login-icon{
+  margin-left: 15px;
+}
 
 /* Body */
 
@@ -36,3 +39,11 @@ body {
   width: 150px;
 }
 
+/* read produce form */
+.title-text-field-produce-read{
+  margin-right: 25px;
+}
+.text-field-read-produce{
+  width: 200px;
+  
+}

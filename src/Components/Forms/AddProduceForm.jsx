@@ -57,7 +57,6 @@ function AddProduceForm() {
             </div>
 
             <div className="div-form-inputs">
-              {/* <FormControl fullWidth> */}
               <Typography className="typo-name-form" variant="body1">
                 סוג הנוהל
               </Typography>
@@ -73,11 +72,9 @@ function AddProduceForm() {
                 <MenuItem value={"medical"}>רפואי</MenuItem>
                 <MenuItem value={"medical"}>ארכיון נהלים לא פעילים</MenuItem>
               </Select>
-              {/* </FormControl> */}
             </div>
 
             <div className="div-form-inputs">
-              {/* <FormControl > */}
               <Typography className="typo-name-form" variant="body1">
                 סטטוס
               </Typography>
@@ -92,7 +89,6 @@ function AddProduceForm() {
                 <MenuItem value={"manager"}>פעיל</MenuItem>
                 <MenuItem value={"medical"}>מוסתר</MenuItem>
               </Select>
-              {/* </FormControl> */}
             </div>
 
             <div className="div-form-inputs">
