@@ -14,6 +14,7 @@ const style = {
   border: "2px solid #000",
   boxShadow: 24,
   p: 5,
+  borderRadius: "25px",
 };
 
 function ModalAddProduce() {
@@ -33,7 +34,7 @@ function ModalAddProduce() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={style} >
           <AddProduceForm className="test" />
         </Box>
       </Modal>

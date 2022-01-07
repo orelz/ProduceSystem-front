@@ -18,6 +18,7 @@ const style = {
   border: "2px solid #000",
   boxShadow: 24,
   p: 5,
+  borderRadius: "25px",
 };
 
 function ModalEditProduce() {

@@ -10,11 +10,15 @@ function ImportentProduces() {
   return (
     <div>
       <MaterialTable
+      style={{
+        borderRadius: "25px"
+      }}
         components={{
           Toolbar: (props) => (
             <div
               style={{
                 backgroundColor: "#0096c7",
+                borderRadius: "25px 25px 0 0 "
               }}
             >
               <MTableToolbar {...props} />

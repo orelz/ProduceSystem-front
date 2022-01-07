@@ -10,6 +10,9 @@ function ArchiveProduces() {
     <div>
       <MaterialTable
         showPaginationBottom={false}
+        style={{
+          borderRadius:"25px"
+        }}
         columns={[
           {
             title: "תאריך הנוהל",

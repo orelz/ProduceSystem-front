@@ -9,6 +9,9 @@ function RegularProduces() {
   return (
     <div>
       <MaterialTable
+      style={{
+        borderRadius:"25px"
+      }}
         columns={[
           {
             title: "תאריך הנוהל",

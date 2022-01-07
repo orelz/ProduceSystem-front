@@ -8,7 +8,8 @@ import {
 import { Bookmarks } from "@material-ui/icons";
 import React from "react";
 import ModalAddProduce from "./Forms/ModalAddProduce";
-import LoginIcon from '@mui/icons-material/Login';
+import LoginModal from "./Modal/LoginModal";
+
 
 function Header() {
   return (
@@ -33,9 +34,9 @@ function Header() {
                 display: "flex",
                 justifyContent: "space-between",
               }}
-              style={{ marginRight: "auto" }}
+              style={{ marginRight: "auto", width:"80px" }}
             >
-              <LoginIcon fontSize="large" className="login-icon" />
+              <LoginModal />
               <ModalAddProduce />
             </Box>
           </Toolbar>
