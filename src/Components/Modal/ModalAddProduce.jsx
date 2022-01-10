@@ -1,11 +1,7 @@
-import {
-  Box,
-  Modal,
-  Tooltip,
-} from "@material-ui/core";
+import { Box, Modal, Tooltip } from "@material-ui/core";
 import React, { useState } from "react";
-import { EditSharp } from "@material-ui/icons";
-import EditProduceForm from "./EditProduceForm";
+import AddProduceForm from "../Forms/AddProduceForm"
+import { AddBox } from "@material-ui/icons";
 
 const style = {
   position: "absolute",
@@ -21,15 +17,15 @@ const style = {
   borderRadius: "25px",
 };
 
-function ModalEditProduce() {
+function ModalAddProduce() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <Tooltip title="עדכון נוהל">
-        <EditSharp fontSize="medium" onClick={handleOpen} />
+      <Tooltip title="הוספת נוהל חדש">
+        <AddBox fontSize="large" onClick={handleOpen} />
       </Tooltip>
 
       <Modal
@@ -38,12 +34,12 @@ function ModalEditProduce() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          <EditProduceForm className="test" />
+        <Box sx={style} >
+          <AddProduceForm className="test" />
         </Box>
       </Modal>
     </div>
   );
 }
 
-export default ModalEditProduce;
+export default ModalAddProduce;

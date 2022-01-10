@@ -1,7 +1,7 @@
 import { Box, Modal, Tooltip } from '@material-ui/core';
 import { DraftsSharp } from '@material-ui/icons';
 import React, { useState } from 'react';
-import ReadProduceForm from './ReadProduceForm';
+import ReadProduceForm from '../Forms/ReadProduceForm';
 
 const style = {
     position: "absolute",

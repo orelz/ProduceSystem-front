@@ -3,7 +3,7 @@ import MaterialTable, { MTableToolbar } from "material-table";
 import DraftsSharpIcon from "@mui/icons-material/DraftsSharp";
 import React from "react";
 import { ArchiveSharp } from "@material-ui/icons";
-import ModalEditProduce from "../Forms/ModalEditProduce ";
+import ModalEditProduce from "../Modal/ModalEditProduce ";
 import ReadProduceModal from "../Modal/ReadProduceModal";
 
 function ImportentProduces() {

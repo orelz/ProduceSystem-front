@@ -3,7 +3,7 @@ import { ArchiveSharp } from "@material-ui/icons";
 import DraftsSharp from "@mui/icons-material/DraftsSharp";
 import MaterialTable from "material-table";
 import React from "react";
-import ModalEditProduce from "../../Forms/ModalEditProduce ";
+import ModalEditProduce from "../../Modal/ModalEditProduce ";
 
 function HideProduces() {
   return (

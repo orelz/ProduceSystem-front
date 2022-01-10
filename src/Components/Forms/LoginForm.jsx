@@ -15,7 +15,7 @@ function LoginForm () {
               <Typography className="typo-name-form" variant="body1">
                 UserName
               </Typography>
-              <TextField variant="standard" className="text-field-form" />
+              <TextField variant="standard" type="text" className="text-field-form" />
             </div>
 
             <div className="div-form-inputs">
