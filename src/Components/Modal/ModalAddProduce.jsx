@@ -22,6 +22,10 @@ function ModalAddProduce() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const closeModal = () => {
+    setOpen(false);
+  }
+
   return (
     <div>
       <Tooltip title="הוספת נוהל חדש">
@@ -35,7 +39,7 @@ function ModalAddProduce() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style} >
-          <AddProduceForm className="test" />
+          <AddProduceForm className="test" onCloseModal={closeModal}/>
         </Box>
       </Modal>
     </div>

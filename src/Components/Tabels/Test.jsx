@@ -1,14 +1,25 @@
+import MaterialTable, { MTableToolbar } from "material-table";
+import React, { useEffect, useState } from "react";
 import { ArchiveSharp } from "@material-ui/icons";
-import MaterialTable from "material-table";
-import React from "react";
 import ModalEditProduce from "../Modal/ModalEditProduce ";
 import ReadProduceModal from "../Modal/ReadProduceModal";
 
-function RegularProduces() {
+function Test() {
+  const [data, setData] = useState([]);
+
+  useEffect(()=> {
+    fetch("http://localhost:3000/importentProduces")
+    .then(resp=> resp.json())
+    .then(resp=>{
+      console.log(resp);
+      setData(resp)})
+  },[])
+
+
   const columns = [
     {
       title: "תאריך הנוהל",
-      field: "produceDate",
+      field: "produceCreateDate",
       align: "center",
       width: "15%",
       headerStyle: { width: "10%" },
@@ -32,7 +43,7 @@ function RegularProduces() {
     },
     {
       title: "מחבר הנוהל",
-      field: "produceAuthor",
+      field: "authorName",
       align: "center",
       width: "15%",
       headerStyle: { width: "15%" },
@@ -64,60 +75,52 @@ function RegularProduces() {
     },
   ];
 
-  const data = [
-    {
-      produceDate: "21.12.21",
-      produceName: "נוהל 1",
-      produceCategory: "ניהולי",
-      produceAuthor: "אוראל",
-      read: <ReadProduceModal />,
-      edit: <ModalEditProduce />,
-      delete: <ArchiveSharp />,
-    },
-    {
-      produceDate: "01.12.21",
-      produceName: "2",
-      produceCategory: "ניהולי",
-      produceAuthor: "אוראל",
-      read: <ReadProduceModal />,
-      edit: <ModalEditProduce />,
-      delete: <ArchiveSharp />,
-    },
-    {
-      produceDate: "02.11.21",
-      produceName: "נוהל 3",
-      produceCategory: "רפואי",
-      produceAuthor: "אוראל",
-      read: <ReadProduceModal />,
-      edit: <ModalEditProduce />,
-      delete: <ArchiveSharp />,
-    },
-    {
-      produceDate: "30.12.21",
-      produceName: "נוהל 4",
-      produceCategory: "רפואי",
-      produceAuthor: "אוראל",
-      read: <ReadProduceModal />,
-      edit: <ModalEditProduce />,
-      delete: <ArchiveSharp />,
-    },
-  ];
+  // const tableData ={
+  //   produceCreateDate: this.state.data.produceCreateDate,
+  //     produceName: this.state.data.produceName,
+  //     produceCategory: this.state.data.produceCategory,
+  //     authorName: this.state.data.authorName,
+  //     read: <ReadProduceModal />,
+  //     edit: <ModalEditProduce />,
+  //     delete: <ArchiveSharp />,
+  // }
+  
+
 
   return (
-    <div>
+    <div> 
+
       <MaterialTable
         style={{
           borderRadius: "25px",
         }}
+        components={{
+          Toolbar: (props) => (
+            <div
+              style={{
+                backgroundColor: "#0096c7",
+                borderRadius: "25px 25px 0 0 ",
+              }}
+            >
+              <MTableToolbar {...props} />
+            </div>
+          ),
+        }}
         columns={columns}
-        data={data}
-        title="נהלים רגילים"
+        data={
+          data
+        }
+        title="נהלים נעוצים"
         options={{
           padding: "dense",
+          paging: false,
+          showTitle: true,
+          search: false,
           headerStyle: { backgroundColor: "#e5e5e5" },
         }}
       />
     </div>
   );
 }
-export default RegularProduces;
+
+export default Test;
