@@ -1,10 +1,6 @@
-import { Button } from "@material-ui/core";
-import { ArchiveSharp } from "@material-ui/icons";
-import DraftsSharp from "@mui/icons-material/DraftsSharp";
 import MaterialTable from "material-table";
 import React from "react";
-import ModalEditProduce from "../../Modal/ModalEditProduce ";
-import ReadProduceModal from "../../Modal/ReadProduceModal";
+import TableOptions from "../TableOptions";
 
 function HideProduces() {
 
@@ -43,23 +39,7 @@ function HideProduces() {
     },
     {
       title: "",
-      field: "read",
-      align: "center",
-      width: "1%",
-      headerStyle: { width: "1%" },
-      cellStyle: { width: "1%" },
-    },
-    {
-      title: "",
-      field: "edit",
-      align: "center",
-      width: "1%",
-      headerStyle: { width: "1%" },
-      cellStyle: { width: "1%" },
-    },
-    {
-      title: "",
-      field: "delete",
+      field: "options",
       align: "center",
       width: "1%",
       headerStyle: { width: "1%" },
@@ -73,36 +53,32 @@ function HideProduces() {
       produceName: "נוהל 1",
       produceCategory: "ניהולי",
       produceAuthor: "אוראל",
-      read: <ReadProduceModal />,
-      edit: <ModalEditProduce />,
-      delete: <ArchiveSharp />,
+      options: <TableOptions />,
+
     },
     {
       produceDate: "01.12.21",
       produceName: "2",
       produceCategory: "ניהולי",
       produceAuthor: "אוראל",
-      read: <ReadProduceModal />,
-      edit: <ModalEditProduce />,
-      delete: <ArchiveSharp />,
+      options: <TableOptions />,
+
     },
     {
       produceDate: "02.11.21",
       produceName: "נוהל 3",
       produceCategory: "רפואי",
       produceAuthor: "אוראל",
-      read: <ReadProduceModal />,
-      edit: <ModalEditProduce />,
-      delete: <ArchiveSharp />,
+      options: <TableOptions />,
+
     },
     {
       produceDate: "30.12.21",
       produceName: "נוהל 4",
       produceCategory: "רפואי",
       produceAuthor: "אוראל",
-      read: <ReadProduceModal />,
-      edit: <ModalEditProduce />,
-      delete: <ArchiveSharp />,
+      options: <TableOptions />,
+
     },
   ];
 

@@ -65,23 +65,15 @@ function AddProduceForm(props) {
     };
 
     console.log(produce);
-
-    setProduceTitle("");
-    setProduceAuthor("");
-    setProduceCategory("");
-    setImportentProduce("");
-    setProduceHideOrActice("");
-    setProduceContent("");
-
     props.onCloseModal();
   };
 
   return (
     <ThemeProvider theme={theme}>
       <div dir="rtl">
-            <form onSubmit={submitHandler}>
-        <Container>
-          <Stack spacing={5}>
+        <form onSubmit={submitHandler}>
+          <Container>
+            <Stack spacing={5}>
               <Typography
                 variant="h3"
                 gutterBottom
@@ -194,10 +186,9 @@ function AddProduceForm(props) {
               >
                 שלח
               </Button>
-
-          </Stack>
-        </Container>
-            </form>
+            </Stack>
+          </Container>
+        </form>
       </div>
     </ThemeProvider>
   );

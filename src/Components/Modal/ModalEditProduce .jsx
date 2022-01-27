@@ -26,6 +26,10 @@ function ModalEditProduce() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const closeModal = () => {
+    setOpen(false)
+  }
+
   return (
     <div>
       <Tooltip title="עדכון נוהל">
@@ -39,7 +43,7 @@ function ModalEditProduce() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <EditProduceForm className="test" />
+          <EditProduceForm className="test" onCloseModal={closeModal} />
         </Box>
       </Modal>
     </div>
