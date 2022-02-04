@@ -3,7 +3,7 @@ import MaterialTable, { MTableToolbar } from "material-table";
 import React from "react";
 import TableOptions from "./TableOptions";
 
-function ImportentProduces(props) {
+function ImportentProduces() {
 
   const columns = [
     {

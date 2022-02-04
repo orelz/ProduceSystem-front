@@ -17,7 +17,7 @@ const style = {
     borderRadius: "25px",
   };
 
-function ReadProduceModal(props) {
+function ReadProduceModal() {
 
     
   const [open, setOpen] = useState(false);
@@ -38,7 +38,7 @@ function ReadProduceModal(props) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <ReadProduceForm tableData={props.tableData}/>
+          <ReadProduceForm/>
         </Box>
       </Modal>
 

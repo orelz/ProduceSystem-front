@@ -5,7 +5,7 @@ import React from "react";
 import ModalEditProduce from "../Modal/ModalEditProduce ";
 import ReadProduceModal from "../Modal/ReadProduceModal";
 
-function TableOptions(props) {
+function TableOptions() {
   return (
     <div>
       <Stack
@@ -14,7 +14,6 @@ function TableOptions(props) {
         spacing={1}
       >
         <ReadProduceModal
-        tableData={props.tableData}
         />
         <ModalEditProduce />
         <ArchiveSharp />

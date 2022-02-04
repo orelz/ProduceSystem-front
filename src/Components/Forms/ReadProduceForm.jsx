@@ -2,7 +2,7 @@ import { Container, Grid, TextField, Typography } from "@material-ui/core";
 import { Stack } from "@mui/material";
 import React from "react";
 
-function ReadProduceForm(props) {
+function ReadProduceForm() {
   return (
     <div>
       <Container>
