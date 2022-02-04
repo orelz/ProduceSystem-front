@@ -13,10 +13,12 @@ function App() {
           justifyContent: "center",
         }}
       >
-        <Grid xs={8} justifyContent="center" alignItems="center">
+        <Grid container justifyContent="center" alignItems="center">
+        <Grid item xs={8} >
           <Header />
           <Body />
           <Footer />
+        </Grid>
         </Grid>
       </Box>
     </div>
