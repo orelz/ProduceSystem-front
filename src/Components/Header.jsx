@@ -5,12 +5,21 @@ import {
   Typography,
 } from "@material-ui/core";
 import { Bookmarks } from "@material-ui/icons";
+import LoginIcon from "@mui/icons-material/Login";
 import React from "react";
 import ModalAddProduce from "./Modal/ModalAddProduce";
-import LoginModal from "./Modal/LoginModal";
 
 
-function Header() {
+
+function Header(props) {
+
+const loginPrompt =(password) => {
+  password = prompt("הקלד קוד כניסת מנהל" , "");
+  alert("ברוכ/ה הבאה למערכת הנהלים, ברשותך הרשאות ניהול");
+  props.onLoginHandler(password);
+
+}
+
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
@@ -35,8 +44,8 @@ function Header() {
               }}
               style={{ marginRight: "auto", width:"80px" }}
             >
-              <LoginModal />
-              <ModalAddProduce />
+              {props.isLogin && <ModalAddProduce />}
+              {!props.isLogin && <LoginIcon fontSize="large" onClick={loginPrompt} />}
             </Box>
           </Toolbar>
         </AppBar>

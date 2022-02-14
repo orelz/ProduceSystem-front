@@ -4,7 +4,7 @@ import OtherTables from "./Tabels/OtherTables";
 import Test from "./Tabels/Test";
 import ImportentProduces from "./Tabels/ImportentProduces";
 
-function Body() {
+function Body(props) {
 
 
 
@@ -13,13 +13,13 @@ function Body() {
       {/* ------------- Produce Table ------------------ */}
       <div className="table-component">
         {/* <Test /> */}
-        <ImportentProduces />
+        <ImportentProduces isLogin = {props.isLogin}/>
       </div>
       <div className="table-component">
-        <RegularProduces />
+        <RegularProduces  />
       </div>
       <div className="table-component">
-        <OtherTables />
+        <OtherTables isLogin = {props.isLogin} />
       </div>
       {/* ------------- /Produce Table ------------------ */}
     </div>

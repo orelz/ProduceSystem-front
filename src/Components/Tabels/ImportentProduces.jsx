@@ -3,7 +3,7 @@ import MaterialTable, { MTableToolbar } from "material-table";
 import React from "react";
 import TableOptions from "./TableOptions";
 
-function ImportentProduces() {
+function ImportentProduces(props) {
 
   const columns = [
     {
@@ -54,7 +54,7 @@ function ImportentProduces() {
       produceName: "נוהל 1",
       produceCategory: "ניהולי",
       produceAuthor: "אוראל",
-      options: <TableOptions />
+      options: <TableOptions isLogin = {props.isLogin} />
     },
     {
       produceDate: "01.12.21",

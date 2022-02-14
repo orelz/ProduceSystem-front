@@ -5,7 +5,7 @@ import React from "react";
 import ModalEditProduce from "../Modal/ModalEditProduce ";
 import ReadProduceModal from "../Modal/ReadProduceModal";
 
-function TableOptions() {
+function TableOptions(props) {
   return (
     <div>
       <Stack
@@ -15,8 +15,10 @@ function TableOptions() {
       >
         <ReadProduceModal
         />
-        <ModalEditProduce />
-        <ArchiveSharp />
+        {props.isLogin && <ModalEditProduce /> }
+        {props.isLogin && <ArchiveSharp /> }
+        {/* <ModalEditProduce />
+        <ArchiveSharp /> */}
       </Stack>
     </div>
   );

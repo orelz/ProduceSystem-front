@@ -4,7 +4,7 @@ import { TabContext, TabList, TabPanel } from "@material-ui/lab";
 import ArchiveProduces from "./OtherTables/ArchiveProduces";
 import HideProduces from "./OtherTables/HideProduces";
 
-function OtherTables() {
+function OtherTables(props) {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -28,7 +28,9 @@ function OtherTables() {
             <ArchiveProduces />
           </TabPanel>
           <TabPanel value="2">
-            <HideProduces />
+            {props.isLogin && <HideProduces />}
+            {!props.isLogin && <p>יש להתחבר למערכת הנהלים על מנת לצפות בנהלים מוסתרים</p>}
+            {/* <HideProduces /> */}
           </TabPanel>
         </TabContext>
       </Box>
