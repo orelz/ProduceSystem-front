@@ -21,7 +21,7 @@ const style = {
   borderRadius: "25px",
 };
 
-function ModalEditProduce() {
+function ModalEditProduce(props) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -43,7 +43,7 @@ function ModalEditProduce() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <EditProduceForm className="test" onCloseModal={closeModal} />
+          <EditProduceForm className="test" onData = {props.onData} onCloseModal={closeModal} />
         </Box>
       </Modal>
     </div>

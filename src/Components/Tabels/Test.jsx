@@ -1,11 +1,15 @@
+
 import MaterialTable, { MTableToolbar } from "material-table";
 import React, { useEffect, useState } from "react";
-import { ArchiveSharp } from "@material-ui/icons";
 import ModalEditProduce from "../Modal/ModalEditProduce ";
 import ReadProduceModal from "../Modal/ReadProduceModal";
+import { ArchiveSharp } from "@material-ui/icons";
 
-function Test() {
+
+function Test(props) {
   const [data, setData] = useState([]);
+
+  const login = props.isLogin;
 
   useEffect(()=> {
     fetch("http://localhost:3000/importentProduces")
@@ -21,33 +25,38 @@ function Test() {
       title: "תאריך הנוהל",
       field: "produceCreateDate",
       align: "center",
-      width: "15%",
-      headerStyle: { width: "10%" },
-      cellStyle: { width: "10%" },
+      width: "20%",
+      headerStyle: { width: "20%" },
+      cellStyle: { width: "20%" },
+      type: "date",
+      dateSetting: { locale: "en-GB" },
+      
     },
     {
       title: "שם הנוהל",
       field: "produceName",
       align: "center",
-      width: "35%",
+      width: "40%",
       headerStyle: { width: "30%" },
       cellStyle: { width: "30%" },
+      
     },
     {
       title: "קטגוריה",
       field: "produceCategory",
       align: "center",
-      width: "15%",
-      headerStyle: { width: "15%" },
-      cellStyle: { width: "15%" },
+      width: "20%",
+      headerStyle: { width: "20%" },
+      cellStyle: { width: "20%" },
     },
     {
       title: "מחבר הנוהל",
       field: "authorName",
       align: "center",
       width: "15%",
-      headerStyle: { width: "15%" },
-      cellStyle: { width: "15%" },
+      headerStyle: { width: "20%" },
+      cellStyle: { width: "20%" },
+      
     },
     {
       title: "",
@@ -56,6 +65,7 @@ function Test() {
       width: "1%",
       headerStyle: { width: "1%" },
       cellStyle: { width: "1%" },
+      render: rowData=> <ReadProduceModal onData={rowData} />,
     },
     {
       title: "",
@@ -64,6 +74,7 @@ function Test() {
       width: "1%",
       headerStyle: { width: "1%" },
       cellStyle: { width: "1%" },
+      render: rowData => login && <ModalEditProduce onData ={rowData} />
     },
     {
       title: "",
@@ -72,25 +83,15 @@ function Test() {
       width: "1%",
       headerStyle: { width: "1%" },
       cellStyle: { width: "1%" },
+      render: rowData => login && <ArchiveSharp />
     },
   ];
 
-  // const tableData ={
-  //   produceCreateDate: this.state.data.produceCreateDate,
-  //     produceName: this.state.data.produceName,
-  //     produceCategory: this.state.data.produceCategory,
-  //     authorName: this.state.data.authorName,
-  //     read: <ReadProduceModal />,
-  //     edit: <ModalEditProduce />,
-  //     delete: <ArchiveSharp />,
-  // }
-  
-
-
   return (
-    <div> 
+    <div dir="ltf"> 
 
       <MaterialTable
+      
         style={{
           borderRadius: "25px",
         }}
@@ -107,9 +108,7 @@ function Test() {
           ),
         }}
         columns={columns}
-        data={
-          data
-        }
+        data= {data}
         title="נהלים נעוצים"
         options={{
           padding: "dense",

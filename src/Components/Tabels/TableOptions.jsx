@@ -13,12 +13,9 @@ function TableOptions(props) {
         divider={<Divider orientation="vertical" flexItem />}
         spacing={1}
       >
-        <ReadProduceModal
-        />
+        <ReadProduceModal dataTable ={props.dataTable}/>
         {props.isLogin && <ModalEditProduce /> }
         {props.isLogin && <ArchiveSharp /> }
-        {/* <ModalEditProduce />
-        <ArchiveSharp /> */}
       </Stack>
     </div>
   );

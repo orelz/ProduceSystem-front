@@ -30,7 +30,6 @@ function OtherTables(props) {
           <TabPanel value="2">
             {props.isLogin && <HideProduces />}
             {!props.isLogin && <p>יש להתחבר למערכת הנהלים על מנת לצפות בנהלים מוסתרים</p>}
-            {/* <HideProduces /> */}
           </TabPanel>
         </TabContext>
       </Box>

@@ -12,8 +12,8 @@ function Body(props) {
     <div className="div-body" dir="rtl">
       {/* ------------- Produce Table ------------------ */}
       <div className="table-component">
-        {/* <Test /> */}
-        <ImportentProduces isLogin = {props.isLogin}/>
+        <Test isLogin = {props.isLogin}/>
+        {/* <ImportentProduces isLogin = {props.isLogin}/> */}
       </div>
       <div className="table-component">
         <RegularProduces  />

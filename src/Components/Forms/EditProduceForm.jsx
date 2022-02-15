@@ -20,12 +20,15 @@ const theme = createTheme({
 });
 
 function EditProduceForm(props) {
-  const [produceTitle, setProduceTitle] = useState("");
-  const [produceAuthor, setProduceAuthor] = useState("");
-  const [produceCategory, setProduceCategory] = useState("");
-  const [importentProduce, setImportentProduce] = useState("");
-  const [produceHideOrActice, setProduceHideOrActice] = useState("");
-  const [produceContent, setProduceContent] = useState("");
+
+  const produce = props.onData;
+
+  const [produceTitle, setProduceTitle] = useState(produce.produceName);
+  const [produceAuthor, setProduceAuthor] = useState(produce.authorName);
+  const [produceCategory, setProduceCategory] = useState(produce.produceCategory);
+  const [importentProduce, setImportentProduce] = useState(produce.importentProduce.toString());
+  const [produceHideOrActice, setProduceHideOrActice] = useState(produce.produceInArchive);
+  const [produceContent, setProduceContent] = useState(produce.produceContent);
 
   const produceTitleHandler = (e) => {
     setProduceTitle(e.target.value);
@@ -50,7 +53,7 @@ function EditProduceForm(props) {
   const produceContentHandler = (e) => {
     setProduceContent(e.target.value);
   };
-
+ 
   const submitHandler = (e) => {
     e.preventDefault();
 
@@ -91,6 +94,7 @@ function EditProduceForm(props) {
                   variant="standard"
                   className="text-field-form"
                   onChange={produceTitleHandler}
+                  value={produceTitle}
                 />
               </div>
 
@@ -102,6 +106,7 @@ function EditProduceForm(props) {
                   variant="standard"
                   className="text-field-form"
                   onChange={produceAuthorHandler}
+                  value={produceAuthor}
                 />
               </div>
 
@@ -117,9 +122,9 @@ function EditProduceForm(props) {
                   className="select-field-form"
                 >
                   <MenuItem value={""}></MenuItem>
-                  <MenuItem value={"manager"}>ניהולי</MenuItem>
-                  <MenuItem value={"medical"}>רפואי</MenuItem>
-                  <MenuItem value={"medical"}>ארכיון נהלים לא פעילים</MenuItem>
+                  <MenuItem value={"Manager"}>ניהולי</MenuItem>
+                  <MenuItem value={"Medical"}>רפואי</MenuItem>
+                  <MenuItem value={"disable"}>ארכיון נהלים לא פעילים</MenuItem>
                 </Select>
               </div>
 
@@ -135,8 +140,8 @@ function EditProduceForm(props) {
                   className="select-field-form"
                 >
                   <MenuItem value={""}></MenuItem>
-                  <MenuItem value={"manager"}>פעיל</MenuItem>
-                  <MenuItem value={"medical"}>מוסתר</MenuItem>
+                  <MenuItem value={"false"}>פעיל</MenuItem>
+                  <MenuItem value={"true"}>מוסתר</MenuItem>
                 </Select>
               </div>
 
@@ -148,15 +153,16 @@ function EditProduceForm(props) {
                     aria-label="importentProduce"
                     name="row-radio-buttons-importent-produce"
                     className="text-field-form"
+                    value={importentProduce}
                     onChange={importentProduceHandler}
                   >
                     <FormControlLabel
-                      value="yes"
+                      value="true"
                       control={<Radio />}
                       label="כן"
                     />
                     <FormControlLabel
-                      value="no"
+                      value="false"
                       control={<Radio />}
                       label="לא"
                     />
@@ -171,6 +177,7 @@ function EditProduceForm(props) {
                 rows={10}
                 variant="filled"
                 onChange={produceContentHandler}
+                value={produceContent}
               />
 
               <Button

@@ -13,6 +13,7 @@ function ImportentProduces(props) {
       width: "15%",
       headerStyle: { width: "10%" },
       cellStyle: { width: "10%" },
+      type: "date",
     },
     {
       title: "שם הנוהל",

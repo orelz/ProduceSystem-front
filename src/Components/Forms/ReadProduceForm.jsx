@@ -2,7 +2,7 @@ import { Container, Grid, TextField, Typography } from "@material-ui/core";
 import { Stack } from "@mui/material";
 import React from "react";
 
-function ReadProduceForm() {
+function ReadProduceForm(props) {
   return (
     <div>
       <Container>
@@ -13,7 +13,7 @@ function ReadProduceForm() {
             component="div"
             style={{ alignSelf: "center" }}
           >
-            שם הנוהל
+            {props.onData.produceName}
           </Typography>
 
           <Grid container spacing={3}>
@@ -29,6 +29,7 @@ function ReadProduceForm() {
               disabled
               variant="standard"
               className="text-field-read-produce"
+              value={new Date(props.onData.produceCreateDate).toLocaleDateString("en-GB")}
             />
             <Typography
               className="title-text-field-produce-read"
@@ -42,6 +43,7 @@ function ReadProduceForm() {
               disabled
               variant="standard"
               className="text-field-read-produce"
+              value={props.onData.authorName}
             />
           </Grid>
           <Grid container spacing={3}>
@@ -57,6 +59,7 @@ function ReadProduceForm() {
               disabled
               variant="standard"
               className="text-field-read-produce"
+              value={props.onData.produceCategory}
             />
           </Grid>
           <Typography
@@ -72,6 +75,7 @@ function ReadProduceForm() {
             multiline
             rows={25}
             variant="filled"
+            value={props.onData.produceContent}
           />
         </Stack>
       </Container>
