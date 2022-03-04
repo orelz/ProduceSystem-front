@@ -27,7 +27,7 @@ function EditProduceForm(props) {
   const [produceAuthor, setProduceAuthor] = useState(produce.authorName);
   const [produceCategory, setProduceCategory] = useState(produce.produceCategory);
   const [importentProduce, setImportentProduce] = useState(produce.importentProduce.toString());
-  const [produceHideOrActice, setProduceHideOrActice] = useState(produce.produceInArchive);
+  const [produceStatus, setProduceStatus] = useState(produce.produceStatus);
   const [produceContent, setProduceContent] = useState(produce.produceContent);
 
   const produceTitleHandler = (e) => {
@@ -46,8 +46,8 @@ function EditProduceForm(props) {
     setImportentProduce(e.target.value);
   };
 
-  const hideOrActiveProduceHandler = (e) => {
-    setProduceHideOrActice(e.target.value);
+  const produceStatusHandler = (e) => {
+    setProduceStatus(e.target.value);
   };
 
   const produceContentHandler = (e) => {
@@ -63,7 +63,7 @@ function EditProduceForm(props) {
       produceDate: new Date().toString(),
       produceCategory: produceCategory,
       importentProduce: importentProduce,
-      produceHideOrActice: produceHideOrActice,
+      produceStatus: produceStatus,
       produceContent: produceContent,
     };
 
@@ -134,9 +134,9 @@ function EditProduceForm(props) {
                 </Typography>
                 <Select
                   labelId="produceHideOrActice-lable"
-                  value={produceHideOrActice}
+                  value={produceStatus}
                   label="status"
-                  onChange={hideOrActiveProduceHandler}
+                  onChange={produceStatusHandler}
                   className="select-field-form"
                 >
                   <MenuItem value={""}></MenuItem>

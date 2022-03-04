@@ -24,7 +24,7 @@ function AddProduceForm(props) {
   const [produceAuthor, setProduceAuthor] = useState("");
   const [produceCategory, setProduceCategory] = useState("");
   const [importentProduce, setImportentProduce] = useState("");
-  const [produceHideOrActice, setProduceHideOrActice] = useState("");
+  const [produceStatus, setproduceStatus] = useState("");
   const [produceContent, setProduceContent] = useState("");
 
   const produceTitleHandler = (e) => {
@@ -43,8 +43,8 @@ function AddProduceForm(props) {
     setImportentProduce(e.target.value);
   };
 
-  const hideOrActiveProduceHandler = (e) => {
-    setProduceHideOrActice(e.target.value);
+  const produceStatusHandler = (e) => {
+    setproduceStatus(e.target.value);
   };
 
   const produceContentHandler = (e) => {
@@ -54,19 +54,33 @@ function AddProduceForm(props) {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    const produce = {
-      produceTitle: produceTitle,
-      productAuthor: produceAuthor,
-      produceDate: new Date().toString(),
+    const produceToSend = {
+      produceName: produceTitle,
       produceCategory: produceCategory,
+      produceStatus: produceStatus,
       importentProduce: importentProduce,
-      produceHideOrActice: produceHideOrActice,
+      authorName: produceAuthor,
+      produceCreateDate: new Date().toString(),
       produceContent: produceContent,
     };
+    console.log(produceToSend);
 
-    console.log(produce);
+    //Post req for produce
+    fetch('http://localhost:3000/createProduce', {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(produceToSend)
+    }).then((response)=> {
+      return response.json();
+    }).then((data)=>{
+      console.log(data);
+    });
+
+    //Close the modal after sending
     props.onCloseModal();
   };
+
+
 
 
 
@@ -122,8 +136,8 @@ function AddProduceForm(props) {
                   className="select-field-form"
                 >
                   <MenuItem value={""}></MenuItem>
-                  <MenuItem value={"manager"}>ניהולי</MenuItem>
-                  <MenuItem value={"medical"}>רפואי</MenuItem>
+                  <MenuItem value={'manager'}>ניהולי</MenuItem>
+                  <MenuItem value={'medical'}>רפואי</MenuItem>
                 </Select>
               </div>
 
@@ -133,14 +147,13 @@ function AddProduceForm(props) {
                 </Typography>
                 <Select
                   labelId="produceHideOrActice-lable"
-                  value={produceHideOrActice}
+                  value={produceStatus}
                   label="status"
-                  onChange={hideOrActiveProduceHandler}
+                  onChange={produceStatusHandler}
                   className="select-field-form"
                 >
-                  <MenuItem value={""}></MenuItem>
-                  <MenuItem value={"manager"}>פעיל</MenuItem>
-                  <MenuItem value={"medical"}>מוסתר</MenuItem>
+                  <MenuItem value={'active'}>פעיל</MenuItem>
+                  <MenuItem value={'hide'}>מוסתר</MenuItem>
                 </Select>
               </div>
 
@@ -156,12 +169,12 @@ function AddProduceForm(props) {
                     onChange={importentProduceHandler}
                   >
                     <FormControlLabel
-                      value="yes"
+                      value='yes'
                       control={<Radio />}
                       label="כן"
                     />
                     <FormControlLabel
-                      value="no"
+                      value='no'
                       control={<Radio />}
                       label="לא"
                     />
@@ -185,6 +198,7 @@ function AddProduceForm(props) {
                 variant="contained"
                 size="large"
                 style={{ width: "250px", alignSelf: "center" }}
+                // onClick={sendProduce}
               >
                 שלח
               </Button>
