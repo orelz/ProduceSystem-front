@@ -14,8 +14,12 @@ import ModalAddProduce from "./Modal/ModalAddProduce";
 function Header(props) {
 
 const loginPrompt =(password) => {
-  password = prompt("הקלד קוד כניסת מנהל" , "");
-  alert("ברוכ/ה הבאה למערכת הנהלים, ברשותך הרשאות ניהול");
+  password = prompt("הקלד קוד כניסת מנהל");
+  if(password === "Admin"){
+    alert("ברוכ/ה הבאה למערכת הנהלים, ברשותך הרשאות ניהול");
+  } else {
+    alert("סיסמא שגויה, יש לנסות שוב")
+  }
   props.onLoginHandler(password);
 
 }

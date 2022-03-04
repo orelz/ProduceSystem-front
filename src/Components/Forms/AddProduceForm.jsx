@@ -15,6 +15,7 @@ import { Stack } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import React, { useState } from "react";
 
+
 const theme = createTheme({
   direction: "rtl",
 });
@@ -75,7 +76,6 @@ function AddProduceForm(props) {
     }).then((data)=>{
       console.log(data);
     });
-
     //Close the modal after sending
     props.onCloseModal();
   };
