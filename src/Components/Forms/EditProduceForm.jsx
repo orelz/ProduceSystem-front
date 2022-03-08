@@ -23,27 +23,27 @@ function EditProduceForm(props) {
 
   const produce = props.onData;
 
-  const [produceTitle, setProduceTitle] = useState(produce.produceName);
-  const [produceAuthor, setProduceAuthor] = useState(produce.authorName);
+  const [produceName, setProduceName] = useState(produce.produceName);
+  const [authorName, setAuthorName] = useState(produce.authorName);
   const [produceCategory, setProduceCategory] = useState(produce.produceCategory);
-  const [importentProduce, setImportentProduce] = useState(produce.importentProduce.toString());
+  const [importantProduce, setImportantProduce] = useState(produce.importentProduce.toString());
   const [produceStatus, setProduceStatus] = useState(produce.produceStatus);
   const [produceContent, setProduceContent] = useState(produce.produceContent);
 
-  const produceTitleHandler = (e) => {
-    setProduceTitle(e.target.value);
+  const produceNameHandler = (e) => {
+    setProduceName(e.target.value);
   };
 
-  const produceAuthorHandler = (e) => {
-    setProduceAuthor(e.target.value);
+  const authorNameHandler = (e) => {
+    setAuthorName(e.target.value);
   };
 
   const produceCategoryHandler = (e) => {
     setProduceCategory(e.target.value);
   };
 
-  const importentProduceHandler = (e) => {
-    setImportentProduce(e.target.value);
+  const importantProduceHandler = (e) => {
+    setImportantProduce(e.target.value);
   };
 
   const produceStatusHandler = (e) => {
@@ -58,12 +58,12 @@ function EditProduceForm(props) {
     e.preventDefault();
 
     const produce = {
-      produceTitle: produceTitle,
-      productAuthor: produceAuthor,
-      produceDate: new Date().toString(),
+      produceName: produceName,
       produceCategory: produceCategory,
-      importentProduce: importentProduce,
       produceStatus: produceStatus,
+      importantProduce: importantProduce,
+      authorName: authorName,
+      produceCreateDate: new Date().toString(),
       produceContent: produceContent,
     };
 
@@ -93,8 +93,8 @@ function EditProduceForm(props) {
                 <TextField
                   variant="standard"
                   className="text-field-form"
-                  onChange={produceTitleHandler}
-                  value={produceTitle}
+                  onChange={produceNameHandler}
+                  value={produceName}
                 />
               </div>
 
@@ -105,8 +105,8 @@ function EditProduceForm(props) {
                 <TextField
                   variant="standard"
                   className="text-field-form"
-                  onChange={produceAuthorHandler}
-                  value={produceAuthor}
+                  onChange={authorNameHandler}
+                  value={authorName}
                 />
               </div>
 
@@ -153,8 +153,8 @@ function EditProduceForm(props) {
                     aria-label="importentProduce"
                     name="row-radio-buttons-importent-produce"
                     className="text-field-form"
-                    value={importentProduce}
-                    onChange={importentProduceHandler}
+                    value={importantProduce}
+                    onChange={importantProduceHandler}
                   >
                     <FormControlLabel
                       value="true"

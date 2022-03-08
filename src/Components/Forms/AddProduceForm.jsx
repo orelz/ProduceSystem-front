@@ -24,7 +24,7 @@ function AddProduceForm(props) {
   const [produceTitle, setProduceTitle] = useState("");
   const [produceAuthor, setProduceAuthor] = useState("");
   const [produceCategory, setProduceCategory] = useState("");
-  const [importentProduce, setImportentProduce] = useState("");
+  const [importantProduce, setImportantProduce] = useState("");
   const [produceStatus, setproduceStatus] = useState("");
   const [produceContent, setProduceContent] = useState("");
 
@@ -40,8 +40,8 @@ function AddProduceForm(props) {
     setProduceCategory(e.target.value);
   };
 
-  const importentProduceHandler = (e) => {
-    setImportentProduce(e.target.value);
+  const importantProduceHandler = (e) => {
+    setImportantProduce(e.target.value);
   };
 
   const produceStatusHandler = (e) => {
@@ -59,7 +59,7 @@ function AddProduceForm(props) {
       produceName: produceTitle,
       produceCategory: produceCategory,
       produceStatus: produceStatus,
-      importentProduce: importentProduce,
+      importantProduce: importantProduce,
       authorName: produceAuthor,
       produceCreateDate: new Date().toString(),
       produceContent: produceContent,
@@ -165,8 +165,8 @@ function AddProduceForm(props) {
                     aria-label="importentProduce"
                     name="row-radio-buttons-importent-produce"
                     className="text-field-form"
-                    value={importentProduce}
-                    onChange={importentProduceHandler}
+                    value={importantProduce}
+                    onChange={importantProduceHandler}
                   >
                     <FormControlLabel
                       value='yes'

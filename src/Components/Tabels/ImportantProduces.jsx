@@ -1,24 +1,11 @@
-
 import MaterialTable, { MTableToolbar } from "material-table";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ModalEditProduce from "../Modal/ModalEditProduce ";
 import ReadProduceModal from "../Modal/ReadProduceModal";
 import { ArchiveSharp } from "@material-ui/icons";
 
-
-function Test(props) {
-  const [data, setData] = useState([]);
-
+function ImportantProduces(props) {
   const login = props.isLogin;
-
-  useEffect(()=> {
-    fetch("http://localhost:3000/importentProduces")
-    .then(resp=> resp.json())
-    .then(resp=>{
-      console.log(resp);
-      setData(resp)})
-  },[])
-
 
   const columns = [
     {
@@ -30,7 +17,6 @@ function Test(props) {
       cellStyle: { width: "20%" },
       type: "date",
       dateSetting: { locale: "en-GB" },
-      
     },
     {
       title: "שם הנוהל",
@@ -39,7 +25,6 @@ function Test(props) {
       width: "40%",
       headerStyle: { width: "30%" },
       cellStyle: { width: "30%" },
-      
     },
     {
       title: "קטגוריה",
@@ -56,7 +41,6 @@ function Test(props) {
       width: "15%",
       headerStyle: { width: "20%" },
       cellStyle: { width: "20%" },
-      
     },
     {
       title: "",
@@ -65,7 +49,7 @@ function Test(props) {
       width: "1%",
       headerStyle: { width: "1%" },
       cellStyle: { width: "1%" },
-      render: rowData=> <ReadProduceModal onData={rowData} />,
+      render: (rowData) => <ReadProduceModal onData={rowData} />,
     },
     {
       title: "",
@@ -74,7 +58,7 @@ function Test(props) {
       width: "1%",
       headerStyle: { width: "1%" },
       cellStyle: { width: "1%" },
-      render: rowData => login && <ModalEditProduce onData ={rowData} />
+      render: (rowData) => login && <ModalEditProduce onData={rowData} />,
     },
     {
       title: "",
@@ -83,15 +67,13 @@ function Test(props) {
       width: "1%",
       headerStyle: { width: "1%" },
       cellStyle: { width: "1%" },
-      render: rowData => login && <ArchiveSharp />
+      render: (rowData) => login && <ArchiveSharp />,
     },
   ];
 
   return (
-    <div dir="ltf"> 
-
+    <div dir="ltf">
       <MaterialTable
-      
         style={{
           borderRadius: "25px",
         }}
@@ -108,7 +90,7 @@ function Test(props) {
           ),
         }}
         columns={columns}
-        data= {data}
+        data={props.data}
         title="נהלים נעוצים"
         options={{
           padding: "dense",
@@ -122,4 +104,4 @@ function Test(props) {
   );
 }
 
-export default Test;
+export default ImportantProduces;
