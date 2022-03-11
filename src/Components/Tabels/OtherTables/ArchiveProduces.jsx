@@ -1,27 +1,28 @@
 import { ArchiveSharp } from "@material-ui/icons";
-import DraftsSharp from "@mui/icons-material/DraftsSharp";
 import MaterialTable from "material-table";
 import React from "react";
-import { Button } from "react-bootstrap";
 import ModalEditProduce from "../../Modal/ModalEditProduce ";
 import ReadProduceModal from "../../Modal/ReadProduceModal";
 
-function ArchiveProduces() {
+function ArchiveProduces(props) {
+  const login = props.isLogin;
 
   const columns = [
     {
       title: "תאריך הנוהל",
-      field: "produceDate",
+      field: "produceCreateDate",
       align: "center",
-      width: "15%",
-      headerStyle: { width: "10%" },
-      cellStyle: { width: "10%" },
+      width: "20%",
+      headerStyle: { width: "20%" },
+      cellStyle: { width: "20%" },
+      type: "date",
+      dateSetting: { locale: "en-GB" },
     },
     {
       title: "שם הנוהל",
       field: "produceName",
       align: "center",
-      width: "35%",
+      width: "40%",
       headerStyle: { width: "30%" },
       cellStyle: { width: "30%" },
     },
@@ -29,17 +30,17 @@ function ArchiveProduces() {
       title: "קטגוריה",
       field: "produceCategory",
       align: "center",
-      width: "15%",
-      headerStyle: { width: "15%" },
-      cellStyle: { width: "15%" },
+      width: "20%",
+      headerStyle: { width: "20%" },
+      cellStyle: { width: "20%" },
     },
     {
       title: "מחבר הנוהל",
-      field: "produceAuthor",
+      field: "authorName",
       align: "center",
       width: "15%",
-      headerStyle: { width: "15%" },
-      cellStyle: { width: "15%" },
+      headerStyle: { width: "20%" },
+      cellStyle: { width: "20%" },
     },
     {
       title: "",
@@ -48,6 +49,7 @@ function ArchiveProduces() {
       width: "1%",
       headerStyle: { width: "1%" },
       cellStyle: { width: "1%" },
+      render: (rowData) => <ReadProduceModal onData={rowData} />,
     },
     {
       title: "",
@@ -56,6 +58,7 @@ function ArchiveProduces() {
       width: "1%",
       headerStyle: { width: "1%" },
       cellStyle: { width: "1%" },
+      render: (rowData) => login && <ModalEditProduce onData={rowData} />,
     },
     {
       title: "",
@@ -64,45 +67,7 @@ function ArchiveProduces() {
       width: "1%",
       headerStyle: { width: "1%" },
       cellStyle: { width: "1%" },
-    },
-  ];
-
-  const data = [
-    {
-      produceDate: "21.12.21",
-      produceName: "נוהל 1",
-      produceCategory: "ניהולי",
-      produceAuthor: "אוראל",
-      read: <ReadProduceModal />,
-      edit: <ModalEditProduce />,
-      delete: <ArchiveSharp />,
-    },
-    {
-      produceDate: "01.12.21",
-      produceName: "2",
-      produceCategory: "ניהולי",
-      produceAuthor: "אוראל",
-      read: <ReadProduceModal />,
-      edit: <ModalEditProduce />,
-      delete: <ArchiveSharp />,
-    },
-    {
-      produceDate: "02.11.21",
-      produceName: "נוהל 3",
-      produceCategory: "רפואי",
-      produceAuthor: "אוראל",
-      read: <ReadProduceModal />,
-      edit: <ModalEditProduce />,
-      delete: <ArchiveSharp />,
-    },
-    {
-      produceDate: "30.12.21",
-      produceName: "נוהל 4",
-      produceCategory: "רפואי",
-      produceAuthor: "אוראל",
-      read: <ReadProduceModal />,
-      edit: <ModalEditProduce />,
-      delete: <ArchiveSharp />,
+      render: (rowData) => login && <ArchiveSharp />,
     },
   ];
 
@@ -111,10 +76,10 @@ function ArchiveProduces() {
       <MaterialTable
         showPaginationBottom={false}
         style={{
-          borderRadius:"25px"
+          borderRadius: "25px",
         }}
         columns={columns}
-        data={data}
+        data={props.data}
         title=""
         options={{
           padding: "dense",

@@ -3,10 +3,8 @@ import MaterialTable from "material-table";
 import React from "react";
 import ModalEditProduce from "../Modal/ModalEditProduce ";
 import ReadProduceModal from "../Modal/ReadProduceModal";
-import TableOptions from "./TableOptions";
 
 function RegularProduces(props) {
-
   const login = props.isLogin;
 
   const columns = [

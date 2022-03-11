@@ -67,7 +67,7 @@ function ImportantProduces(props) {
       width: "1%",
       headerStyle: { width: "1%" },
       cellStyle: { width: "1%" },
-      render: (rowData) => login && <ArchiveSharp />,
+      render: (rowData) => login && <ArchiveSharp  />,
     },
   ];
 

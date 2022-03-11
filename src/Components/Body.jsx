@@ -16,7 +16,7 @@ function Body(props) {
     setValue(newValue);
   };
 
-  // UseEffect - ProducesAPI
+  // UseEffect - ProducesAPI -Get data base to the tables
   useEffect(() => {
     fetch("http://localhost:3000/allProduces")
       .then((resp) => resp.json())
@@ -26,34 +26,49 @@ function Body(props) {
       });
   }, []);
 
+  // --------------- Set Data Tables ----------------
   // Pass the produces to a variable for changes.
   let dataFromState = data.slice();
-
 
   //---- Important produces ----
   const importantProducesTableData = dataFromState.filter(
     (data) => data.importantProduce === true
   );
-  console.log("filter array " + importantProducesTableData);
-  
+
   //---- Regular produces ----
   const regularProducesDataTable = dataFromState.filter(
-    (data) => data.importantProduce === false && data.produceStatus==="active"
-    );
-    console.log("filter array " + regularProducesDataTable);
+    (data) => data.importantProduce === false && data.produceStatus === "active"
+  );
+
+  //---- Hide produces ----
+  const hideProducesDataTable = dataFromState.filter(
+    (data) => data.produceStatus === "hide" && data.importantProduce === false
+  );
+  //---- Archive produces ----
+  const archiveProducesDataTable = dataFromState.filter(
+    (data) =>
+      data.produceStatus === "archive" && data.importantProduce === false
+  );
+    // --------------- -------------- ----------------
 
   return (
     <div className="div-body" dir="rtl">
-      {/* ------------- Produce Table ------------------ */}
+      {/* ------------- Produces Table ------------------ */}
       <div className="table-component">
-        <ImportantProduces isLogin={props.isLogin} data={importantProducesTableData} />
-        {/* <ImportentProduces isLogin = {props.isLogin}/> */}
+        <ImportantProduces
+          isLogin={props.isLogin}
+          data={importantProducesTableData}
+          onArchiveProduce ={sendProduceToArchiveTableHandler}
+        />
       </div>
       <div className="table-component">
-        <RegularProduces isLogin={props.isLogin} data={regularProducesDataTable} />
+        <RegularProduces
+          isLogin={props.isLogin}
+          data={regularProducesDataTable}
+        />
       </div>
 
-
+      {/* ------Other Tables ------ */}
       <div className="table-component">
         <Box
           sx={{ width: "100%", typography: "body1" }}
@@ -70,10 +85,18 @@ function Body(props) {
               </TabList>
             </Box>
             <TabPanel value="1">
-              <ArchiveProduces />
+              <ArchiveProduces
+                isLogin={props.isLogin}
+                data={archiveProducesDataTable}
+              />
             </TabPanel>
             <TabPanel value="2">
-              {props.isLogin && <HideProduces />}
+              {props.isLogin && (
+                <HideProduces
+                  isLogin={props.isLogin}
+                  data={hideProducesDataTable}
+                />
+              )}
               {!props.isLogin && (
                 <p>יש להתחבר למערכת הנהלים על מנת לצפות בנהלים מוסתרים</p>
               )}
@@ -81,6 +104,7 @@ function Body(props) {
           </TabContext>
         </Box>
       </div>
+      {/* ------Other Tables ------ */}
       {/* ------------- /Produce Table ------------------ */}
     </div>
   );
