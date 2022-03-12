@@ -58,7 +58,7 @@ function ImportantProduces(props) {
       width: "1%",
       headerStyle: { width: "1%" },
       cellStyle: { width: "1%" },
-      render: (rowData) => login && <ModalEditProduce onData={rowData} />,
+      render: (rowData) => login && <ModalEditProduce onData={rowData} updateTablesStateHandler ={props.updateTablesStateHandler} />,
     },
     {
       title: "",
@@ -67,7 +67,7 @@ function ImportantProduces(props) {
       width: "1%",
       headerStyle: { width: "1%" },
       cellStyle: { width: "1%" },
-      render: (rowData) => login && <ArchiveProduce onData ={rowData} />,
+      render: (rowData) => login && <ArchiveProduce onData ={rowData} updateTablesStateHandler ={props.updateTablesStateHandler} />,
     },
   ];
 

@@ -9,8 +9,6 @@ import LoginIcon from "@mui/icons-material/Login";
 import React from "react";
 import ModalAddProduce from "./Modal/ModalAddProduce";
 
-
-
 function Header(props) {
 
 const loginPrompt =(password) => {
@@ -23,6 +21,7 @@ const loginPrompt =(password) => {
   props.onLoginHandler(password);
 
 }
+
 
   return (
     <div>
@@ -48,7 +47,7 @@ const loginPrompt =(password) => {
               }}
               style={{ marginRight: "auto", width:"80px" }}
             >
-              {props.isLogin && <ModalAddProduce />}
+              {props.isLogin && <ModalAddProduce updateTablesStateHandler ={props.updateTablesStateHandler} />}
               {!props.isLogin && <LoginIcon fontSize="large" onClick={loginPrompt} />}
             </Box>
           </Toolbar>

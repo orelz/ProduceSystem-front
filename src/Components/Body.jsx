@@ -7,8 +7,7 @@ import ArchiveProduces from "./Tabels/OtherTables/ArchiveProduces";
 import HideProduces from "./Tabels/OtherTables/HideProduces";
 
 function Body(props) {
-  //State of the producesAPI - All the produces
-  const [data, setData] = useState([]);
+
   //State of the tabs of the hide produces and archive produces.
   const [value, setValue] = useState(0);
 
@@ -16,19 +15,9 @@ function Body(props) {
     setValue(newValue);
   };
 
-  // UseEffect - ProducesAPI -Get data base to the tables
-  useEffect(() => {
-    fetch("http://localhost:3000/allProduces")
-      .then((resp) => resp.json())
-      .then((resp) => {
-        console.log(resp);
-        setData(resp);
-      });
-  }, []);
-
   // --------------- Set Data Tables ----------------
   // Pass the produces to a variable for changes.
-  let dataFromState = data.slice();
+  let dataFromState = props.dataTables.slice();
 
   //---- Important produces ----
   const importantProducesTableData = dataFromState.filter(
@@ -58,12 +47,14 @@ function Body(props) {
         <ImportantProduces
           isLogin={props.isLogin}
           data={importantProducesTableData}
+          updateTablesStateHandler ={props.updateTablesStateHandler}
         />
       </div>
       <div className="table-component">
         <RegularProduces
           isLogin={props.isLogin}
           data={regularProducesDataTable}
+          updateTablesStateHandler ={props.updateTablesStateHandler}
         />
       </div>
 
@@ -87,6 +78,7 @@ function Body(props) {
               <ArchiveProduces
                 isLogin={props.isLogin}
                 data={archiveProducesDataTable}
+                updateTablesStateHandler ={props.updateTablesStateHandler}
               />
             </TabPanel>
             <TabPanel value="2">
@@ -94,6 +86,7 @@ function Body(props) {
                 <HideProduces
                   isLogin={props.isLogin}
                   data={hideProducesDataTable}
+                  updateTablesStateHandler ={props.updateTablesStateHandler}
                 />
               )}
               {!props.isLogin && (

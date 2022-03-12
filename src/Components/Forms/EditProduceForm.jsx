@@ -85,8 +85,8 @@ function EditProduceForm(props) {
     }).then((data)=>{
       console.log(data);
       alert("הנוהל " + produceName + " עודכן בהצלחה.")
+      props.updateTablesStateHandler()
     });
-
     props.onCloseModal();
   };
 

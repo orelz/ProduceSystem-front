@@ -76,6 +76,7 @@ function AddProduceForm(props) {
     }).then((data)=>{
       console.log(data);
       alert("נוהל: " + produceTitle + " נוצר בהצלחה.")
+      props.updateTablesStateHandler()
     });
     //Close the modal after sending
     props.onCloseModal();

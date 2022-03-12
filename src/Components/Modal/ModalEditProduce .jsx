@@ -43,7 +43,7 @@ function ModalEditProduce(props) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <EditProduceForm className="test" onData = {props.onData} onCloseModal={closeModal} />
+          <EditProduceForm className="test" onData = {props.onData} onCloseModal={closeModal} updateTablesStateHandler ={props.updateTablesStateHandler} />
         </Box>
       </Modal>
     </div>

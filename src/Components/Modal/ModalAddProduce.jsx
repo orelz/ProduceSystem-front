@@ -17,7 +17,7 @@ const style = {
   borderRadius: "25px",
 };
 
-function ModalAddProduce() {
+function ModalAddProduce(props) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -39,7 +39,7 @@ function ModalAddProduce() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style} >
-          <AddProduceForm className="test" onCloseModal={closeModal}/>
+          <AddProduceForm className="test" onCloseModal={closeModal} updateTablesStateHandler ={props.updateTablesStateHandler}/>
         </Box>
       </Modal>
     </div>

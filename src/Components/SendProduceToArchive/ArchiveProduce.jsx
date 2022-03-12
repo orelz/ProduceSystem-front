@@ -32,6 +32,7 @@ export default function ArchiveProduce(props) {
           console.log(data);
         });
       alert("הנוהל נשלח לארכיון בהצלחה");
+      props.updateTablesStateHandler()
     } else {
       alert("הפעולה בוטלה");
     }
