@@ -1,8 +1,8 @@
-import { ArchiveSharp } from "@material-ui/icons";
 import MaterialTable from "material-table";
 import React from "react";
 import ModalEditProduce from "../Modal/ModalEditProduce ";
 import ReadProduceModal from "../Modal/ReadProduceModal";
+import ArchiveProduce from "../SendProduceToArchive/ArchiveProduce";
 
 function RegularProduces(props) {
   const login = props.isLogin;
@@ -67,7 +67,7 @@ function RegularProduces(props) {
       width: "1%",
       headerStyle: { width: "1%" },
       cellStyle: { width: "1%" },
-      render: (rowData) => login && <ArchiveSharp />,
+      render: (rowData) => login && <ArchiveProduce onData ={rowData} />,
     },
   ];
 

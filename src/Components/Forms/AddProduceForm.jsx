@@ -75,6 +75,7 @@ function AddProduceForm(props) {
       return response.json();
     }).then((data)=>{
       console.log(data);
+      alert("נוהל: " + produceTitle + " נוצר בהצלחה.")
     });
     //Close the modal after sending
     props.onCloseModal();
@@ -198,7 +199,6 @@ function AddProduceForm(props) {
                 variant="contained"
                 size="large"
                 style={{ width: "250px", alignSelf: "center" }}
-                // onClick={sendProduce}
               >
                 שלח
               </Button>

@@ -84,6 +84,7 @@ function EditProduceForm(props) {
       return response.json();
     }).then((data)=>{
       console.log(data);
+      alert("הנוהל " + produceName + " עודכן בהצלחה.")
     });
 
     props.onCloseModal();
@@ -142,7 +143,6 @@ function EditProduceForm(props) {
                   <MenuItem value={""}></MenuItem>
                   <MenuItem value={"manager"}>ניהולי</MenuItem>
                   <MenuItem value={"medical"}>רפואי</MenuItem>
-                  <MenuItem value={"disable"}>ארכיון נהלים לא פעילים</MenuItem>
                 </Select>
               </div>
 
@@ -160,6 +160,7 @@ function EditProduceForm(props) {
                   <MenuItem value={""}></MenuItem>
                   <MenuItem value={"active"}>פעיל</MenuItem>
                   <MenuItem value={"hide"}>מוסתר</MenuItem>
+                  <MenuItem value={"disable"}>ארכיון נהלים לא פעילים</MenuItem>
                 </Select>
               </div>
 

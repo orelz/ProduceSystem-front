@@ -2,7 +2,7 @@ import MaterialTable, { MTableToolbar } from "material-table";
 import React from "react";
 import ModalEditProduce from "../Modal/ModalEditProduce ";
 import ReadProduceModal from "../Modal/ReadProduceModal";
-import { ArchiveSharp } from "@material-ui/icons";
+import ArchiveProduce from "../SendProduceToArchive/ArchiveProduce";
 
 function ImportantProduces(props) {
   const login = props.isLogin;
@@ -67,7 +67,7 @@ function ImportantProduces(props) {
       width: "1%",
       headerStyle: { width: "1%" },
       cellStyle: { width: "1%" },
-      render: (rowData) => login && <ArchiveSharp  />,
+      render: (rowData) => login && <ArchiveProduce onData ={rowData} />,
     },
   ];
 

@@ -32,7 +32,7 @@ function Body(props) {
 
   //---- Important produces ----
   const importantProducesTableData = dataFromState.filter(
-    (data) => data.importantProduce === true
+    (data) => data.importantProduce === true && data.produceStatus === "active"
   );
 
   //---- Regular produces ----
@@ -58,7 +58,6 @@ function Body(props) {
         <ImportantProduces
           isLogin={props.isLogin}
           data={importantProducesTableData}
-          onArchiveProduce ={sendProduceToArchiveTableHandler}
         />
       </div>
       <div className="table-component">
