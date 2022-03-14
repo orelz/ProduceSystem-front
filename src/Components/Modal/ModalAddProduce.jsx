@@ -2,14 +2,15 @@ import { Box, Modal, Tooltip } from "@material-ui/core";
 import React, { useState } from "react";
 import AddProduceForm from "../Forms/AddProduceForm"
 import { AddBox } from "@material-ui/icons";
+import Test from "../Forms/Test";
 
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 900,
-  height: 1000,
+  width: 700,
+  height: 920,
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
@@ -40,6 +41,7 @@ function ModalAddProduce(props) {
       >
         <Box sx={style} >
           <AddProduceForm className="test" onCloseModal={closeModal} updateTablesStateHandler ={props.updateTablesStateHandler}/>
+          {/* <Test /> */}
         </Box>
       </Modal>
     </div>

@@ -10,21 +10,32 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [data, setData] = useState([]);
 
-  const loginHandler = (token) => {
-    if(token === "Admin"){
-      setIsLogin(true);
-    };
-  }
 
   //Get all the produces from tha API
   useEffect(() => {
     fetch("http://localhost:3000/allProduces")
       .then((resp) => resp.json())
       .then((resp) => {
-        console.log(resp);
+        console.table(resp);
         setData(resp);
       });
   }, []);
+
+  useEffect(() => {
+    const storeUserLogin = localStorage.getItem("isLoggedIn");
+
+    if(storeUserLogin === "1") {
+      setIsLogin(true);
+    }
+  })
+
+  const loginHandler = (token) => {
+    if(token === "Admin"){
+      localStorage.setItem('isLoggedIn', '1');
+      setIsLogin(true);
+    };
+  }
+
 
   const updateTabelsState =() =>{
       fetch("http://localhost:3000/allProduces")
