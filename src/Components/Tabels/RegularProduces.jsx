@@ -5,7 +5,10 @@ import ReadProduceModal from "../Modal/ReadProduceModal";
 import ArchiveProduce from "../SendProduceToArchive/ArchiveProduce";
 
 function RegularProduces(props) {
+
+  // Get the login prop to conditional buttons for the admin.
   const login = props.isLogin;
+   //____________
 
   const columns = [
     {
@@ -49,7 +52,7 @@ function RegularProduces(props) {
       width: "1%",
       headerStyle: { width: "1%" },
       cellStyle: { width: "1%" },
-      render: (rowData) => <ReadProduceModal onData={rowData} />,
+      render: (rowData) => <ReadProduceModal onData={rowData} />, // column with icon for view a full produce
     },
     {
       title: "",
@@ -58,7 +61,7 @@ function RegularProduces(props) {
       width: "1%",
       headerStyle: { width: "1%" },
       cellStyle: { width: "1%" },
-      render: (rowData) => login && <ModalEditProduce onData={rowData} updateTablesStateHandler ={props.updateTablesStateHandler} />,
+      render: (rowData) => login && <ModalEditProduce onData={rowData} updateTablesStateHandler ={props.updateTablesStateHandler} />, // column with icon for edit the produce
     },
     {
       title: "",
@@ -67,7 +70,7 @@ function RegularProduces(props) {
       width: "1%",
       headerStyle: { width: "1%" },
       cellStyle: { width: "1%" },
-      render: (rowData) => login && <ArchiveProduce onData ={rowData} updateTablesStateHandler ={props.updateTablesStateHandler} />,
+      render: (rowData) => login && <ArchiveProduce onData ={rowData} updateTablesStateHandler ={props.updateTablesStateHandler} />, // column with icon for send the produce to the archive
     },
   ];
 

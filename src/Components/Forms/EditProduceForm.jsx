@@ -160,7 +160,7 @@ function EditProduceForm(props) {
                   <MenuItem value={""}></MenuItem>
                   <MenuItem value={"active"}>פעיל</MenuItem>
                   <MenuItem value={"hide"}>מוסתר</MenuItem>
-                  <MenuItem value={"disable"}>ארכיון נהלים לא פעילים</MenuItem>
+                  <MenuItem value={"archive"}>ארכיון נהלים לא פעילים</MenuItem>
                 </Select>
               </div>
 
@@ -169,8 +169,8 @@ function EditProduceForm(props) {
                   <FormLabel component="legend">נוהל נעוץ?</FormLabel>
                   <RadioGroup
                     row
-                    aria-label="importentProduce"
-                    name="row-radio-buttons-importent-produce"
+                    aria-label="importantProduce"
+                    name="row-radio-buttons-important-produce"
                     className="text-field-form"
                     onChange={importantProduceHandler}
                     value={importantProduce.toString()}

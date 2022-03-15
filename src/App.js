@@ -7,11 +7,13 @@ import { useEffect, useState } from "react";
 
 function App() {
 
+  //States: Login + Get produces from the API.
   const [isLogin, setIsLogin] = useState(false);
   const [data, setData] = useState([]);
+//___________
 
 
-  //Get all the produces from tha API
+  //UseEffect to Get all the produces from the API - First load.
   useEffect(() => {
     fetch("http://localhost:3000/allProduces")
       .then((resp) => resp.json())
@@ -20,7 +22,10 @@ function App() {
         setData(resp);
       });
   }, []);
+  //___________
 
+
+  //UseEffect to set use logged in by the browser local storage + Login habdler to update the state.
   useEffect(() => {
     const storeUserLogin = localStorage.getItem("isLoggedIn");
 
@@ -35,8 +40,11 @@ function App() {
       setIsLogin(true);
     };
   }
+  //___________
 
 
+  // A get method that update the state with every HTTP req's if the forms in the project.
+  // The method pass with props to the forms and runs after sending a POST, PATCH or DELETE to the database.
   const updateTabelsState =() =>{
       fetch("http://localhost:3000/allProduces")
         .then((resp) => resp.json())
@@ -45,6 +53,7 @@ function App() {
           setData(resp);
         });
   }
+   //___________
 
   return (
     <div className="App" dir="rtl">
@@ -56,9 +65,11 @@ function App() {
       >
         <Grid container justifyContent="center" alignItems="center">
         <Grid item xs={8} >
+        {/* ------- Project Tamplate ------ */}
           <Header isLogin = {isLogin} onLoginHandler = {loginHandler} updateTablesStateHandler ={updateTabelsState} />
           <Body isLogin = {isLogin} dataTables = {data} updateTablesStateHandler ={updateTabelsState} />
           <Footer />
+        {/* -------------------------- */}
         </Grid>
         </Grid>
       </Box>

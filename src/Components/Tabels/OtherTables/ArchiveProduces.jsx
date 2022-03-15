@@ -1,11 +1,13 @@
-import { ArchiveSharp } from "@material-ui/icons";
 import MaterialTable from "material-table";
 import React from "react";
 import ModalEditProduce from "../../Modal/ModalEditProduce ";
 import ReadProduceModal from "../../Modal/ReadProduceModal";
 
 function ArchiveProduces(props) {
+
+  // Get the login prop to conditional buttons for the admin.
   const login = props.isLogin;
+  //____________
 
   const columns = [
     {
@@ -49,7 +51,7 @@ function ArchiveProduces(props) {
       width: "1%",
       headerStyle: { width: "1%" },
       cellStyle: { width: "1%" },
-      render: (rowData) => <ReadProduceModal onData={rowData} />,
+      render: (rowData) => <ReadProduceModal onData={rowData} />, // column with icon for view a full produce
     },
     {
       title: "",
@@ -58,7 +60,7 @@ function ArchiveProduces(props) {
       width: "1%",
       headerStyle: { width: "1%" },
       cellStyle: { width: "1%" },
-      render: (rowData) => login && <ModalEditProduce onData={rowData} updateTablesStateHandler ={props.updateTablesStateHandler} />,
+      render: (rowData) => login && <ModalEditProduce onData={rowData} updateTablesStateHandler ={props.updateTablesStateHandler} />, // column with icon for edit the produce
     },
   ];
 

@@ -8,15 +8,16 @@ import HideProduces from "./Tabels/OtherTables/HideProduces";
 
 function Body(props) {
 
-  //State of the tabs of the hide produces and archive produces.
+  //State for the material tabs of- hidden/archive produces tables.
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  //___________
 
   // --------------- Set Data Tables ----------------
-  // Pass the produces to a variable for changes.
+  // Pass the data (produces) from the App.js to a new variable for filtering to the tabels.
   let dataFromState = props.dataTables.slice();
 
   //---- Important produces ----
@@ -38,7 +39,7 @@ function Body(props) {
     (data) =>
       data.produceStatus === "archive" && data.importantProduce === false
   );
-    // --------------- -------------- ----------------
+//___________
 
   return (
     <div className="div-body" dir="rtl">
@@ -71,7 +72,7 @@ function Body(props) {
                 aria-label="lab API tabs example"
               >
                 <Tab label="ארכיון נהלים" value="1" />
-                <Tab label="נהלים מוסתרים" value="2" />
+                <Tab label="נהלים מוסתרים- בייצור" value="2" />
               </TabList>
             </Box>
             <TabPanel value="1">
@@ -90,7 +91,7 @@ function Body(props) {
                 />
               )}
               {!props.isLogin && (
-                <p>יש להתחבר למערכת הנהלים על מנת לצפות בנהלים מוסתרים</p>
+                <p>נהלים בייצור- יש להתחבר למערכת הנהלים על מנת לצפות בנהלים מוסתרים</p>
               )}
             </TabPanel>
           </TabContext>

@@ -25,7 +25,7 @@ function AddProduceForm(props) {
   const [produceAuthor, setProduceAuthor] = useState("");
   const [produceCategory, setProduceCategory] = useState("");
   const [importantProduce, setImportantProduce] = useState("");
-  const [produceStatus, setproduceStatus] = useState("");
+  const [produceStatus, setProduceStatus] = useState("");
   const [produceContent, setProduceContent] = useState("");
 
   const produceTitleHandler = (e) => {
@@ -45,7 +45,7 @@ function AddProduceForm(props) {
   };
 
   const produceStatusHandler = (e) => {
-    setproduceStatus(e.target.value);
+    setProduceStatus(e.target.value);
   };
 
   const produceContentHandler = (e) => {
