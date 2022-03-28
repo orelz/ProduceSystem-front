@@ -35,6 +35,7 @@ function ArchiveProduces(props) {
       width: "20%",
       headerStyle: { width: "20%" },
       cellStyle: { width: "20%" },
+      lookup: {manager: "ניהולי", medical: "רפואי"}
     },
     {
       title: "מחבר הנוהל",

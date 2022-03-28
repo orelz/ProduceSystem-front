@@ -166,7 +166,7 @@ function EditProduceForm(props) {
 
               <div className="div-form-inputs">
                 <FormControl component="fieldset">
-                  <FormLabel component="legend">נוהל נעוץ?</FormLabel>
+                  <FormLabel component="legend">נוהל נעוץ? (לא ניתן לשמור יותר מ-5 נהלים נעוצים)</FormLabel>
                   <RadioGroup
                     row
                     aria-label="importantProduce"
