@@ -21,19 +21,30 @@ const theme = createTheme({
 });
 
 function AddProduceForm(props) {
-  const [produceTitle, setProduceTitle] = useState("");
-  const [produceAuthor, setProduceAuthor] = useState("");
+  // Original States
+  const [produceName, setProduceName] = useState("");
+  const [authorName, setAuthorName] = useState("");
   const [produceCategory, setProduceCategory] = useState("");
-  const [importantProduce, setImportantProduce] = useState("");
+  const [importantProduce, setImportantProduce] = useState("no");
   const [produceStatus, setProduceStatus] = useState("");
   const [produceContent, setProduceContent] = useState("");
 
-  const produceTitleHandler = (e) => {
-    setProduceTitle(e.target.value);
+  // States for validation.
+
+  const [produceNameError, setProduceNameError] = useState(false);
+  const [authorNameError, setAuthorNameError] = useState(false);
+  const [produceCategoryError, setProduceCategoryError] = useState(false);
+  const [produceStatusError, setProduceStatusError] = useState(false);
+  const [produceContentError, setProduceContentError] = useState(false);
+
+
+
+  const produceNameHandler = (e) => {
+    setProduceName(e.target.value);
   };
 
-  const produceAuthorHandler = (e) => {
-    setProduceAuthor(e.target.value);
+  const authorNameHandler = (e) => {
+    setAuthorName(e.target.value);
   };
 
   const produceCategoryHandler = (e) => {
@@ -52,15 +63,40 @@ function AddProduceForm(props) {
     setProduceContent(e.target.value);
   };
 
+
   const submitHandler = (e) => {
     e.preventDefault();
 
+    setProduceNameError(false)
+    setAuthorNameError(false)
+    setProduceCategoryError(false)
+    setProduceStatusError(false)
+    setProduceContentError(false)
+
+    if(produceName === ""){
+      setProduceNameError(true)
+    }
+    if(authorName===""){
+      setAuthorNameError(true)
+    }
+    if(produceCategory===""){
+      setProduceCategoryError(true)
+    }
+    if(produceStatus===""){
+      setProduceStatusError(true)
+    }
+    if(produceContent===""){
+      setProduceContentError(true)
+    }
+
+
+    if(produceName && authorName && produceCategory && produceStatus && produceContent){
     const produceToSend = {
-      produceName: produceTitle,
+      produceName: produceName,
       produceCategory: produceCategory,
       produceStatus: produceStatus,
       importantProduce: importantProduce,
-      authorName: produceAuthor,
+      authorName: authorName,
       produceCreateDate: new Date().toString(),
       produceContent: produceContent,
     };
@@ -75,11 +111,12 @@ function AddProduceForm(props) {
       return response.json();
     }).then((data)=>{
       console.log(data);
-      alert("נוהל: " + produceTitle + " נוצר בהצלחה.")
+      alert("נוהל: " + produceName + " נוצר בהצלחה.")
       props.updateTablesStateHandler()
     });
     //Close the modal after sending
     props.onCloseModal();
+  }
   };
 
 
@@ -108,9 +145,10 @@ function AddProduceForm(props) {
                 <TextField
                   variant="standard"
                   className="text-field-form"
-                  value={produceTitle}
+                  value={produceName}
                   type={String}
-                  onChange={produceTitleHandler}
+                  error={produceNameError}
+                  onChange={produceNameHandler}
                 />
               </div>
 
@@ -121,8 +159,9 @@ function AddProduceForm(props) {
                 <TextField
                   variant="standard"
                   className="text-field-form"
-                  value={produceAuthor}
-                  onChange={produceAuthorHandler}
+                  value={authorName}
+                  error={authorNameError}
+                  onChange={authorNameHandler}
                 />
               </div>
 
@@ -133,6 +172,7 @@ function AddProduceForm(props) {
                 <Select
                   labelId="produceCategory-lable"
                   value={produceCategory}
+                  error={produceCategoryError}
                   label="type"
                   onChange={produceCategoryHandler}
                   className="select-field-form"
@@ -150,6 +190,7 @@ function AddProduceForm(props) {
                 <Select
                   labelId="produceHideOrActice-lable"
                   value={produceStatus}
+                  error={produceStatusError}
                   label="status"
                   onChange={produceStatusHandler}
                   className="select-field-form"
@@ -168,6 +209,7 @@ function AddProduceForm(props) {
                     name="row-radio-buttons-importent-produce"
                     className="text-field-form"
                     value={importantProduce}
+                    defaultValue="no"
                     onChange={importantProduceHandler}
                   >
                     <FormControlLabel
@@ -191,6 +233,7 @@ function AddProduceForm(props) {
                 rows={10}
                 variant="filled"
                 value={produceContent}
+                error={produceContentError}
                 onChange={produceContentHandler}
               />
 

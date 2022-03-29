@@ -5,7 +5,6 @@ import React from "react";
 export default function ArchiveProduce(props) {
   let produce = props.onData;
 
-  console.log(produce);
   const sendProduceToArchive = () => {
     let produceToArchive = produce;
     let messageProduce = window.confirm(

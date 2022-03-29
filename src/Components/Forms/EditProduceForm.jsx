@@ -22,6 +22,7 @@ const theme = createTheme({
 function EditProduceForm(props) {
   const produce = props.onData;
 
+  //Original State
   const [produceName, setProduceName] = useState(produce.produceName);
   const [authorName, setAuthorName] = useState(produce.authorName);
   const [produceCategory, setProduceCategory] = useState(
@@ -32,6 +33,17 @@ function EditProduceForm(props) {
   );
   const [produceStatus, setProduceStatus] = useState(produce.produceStatus);
   const [produceContent, setProduceContent] = useState(produce.produceContent);
+
+  //State for validaton
+
+  const [produceNameError, setProduceNameError] = useState(false);
+  const [authorNameError, setAuthorNameError] = useState(false);
+  const [produceCategoryError, setProduceCategoryError] = useState(false);
+  const [produceStatusError, setProduceStatusError] = useState(false);
+  const [produceContentError, setProduceContentError] = useState(false);
+
+
+
 
   const produceNameHandler = (e) => {
     setProduceName(e.target.value);
@@ -59,9 +71,31 @@ function EditProduceForm(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+    setProduceNameError(false)
+    setAuthorNameError(false)
+    setProduceCategoryError(false)
+    setProduceStatusError(false)
+    setProduceContentError(false)
+
+    if(produceName === ""){
+      setProduceNameError(true)
+    }
+    if(authorName===""){
+      setAuthorNameError(true)
+    }
+    if(produceCategory===""){
+      setProduceCategoryError(true)
+    }
+    if(produceStatus===""){
+      setProduceStatusError(true)
+    }
+    if(produceContent===""){
+      setProduceContentError(true)
+    }
     
 
-    
+    if(produceName && authorName && produceCategory && produceStatus && produceContent){
     const produceToSend = {
       produceName: produceName,
       produceCategory: produceCategory,
@@ -88,6 +122,7 @@ function EditProduceForm(props) {
       props.updateTablesStateHandler()
     });
     props.onCloseModal();
+  }
   };
 
   return (
@@ -114,6 +149,7 @@ function EditProduceForm(props) {
                   className="text-field-form"
                   onChange={produceNameHandler}
                   value={produceName}
+                  error={produceNameError}
                 />
               </div>
 
@@ -126,6 +162,7 @@ function EditProduceForm(props) {
                   className="text-field-form"
                   onChange={authorNameHandler}
                   value={authorName}
+                  error={authorNameError}
                 />
               </div>
 
@@ -139,6 +176,7 @@ function EditProduceForm(props) {
                   onChange={produceCategoryHandler}
                   className="select-field-form"
                   value={produceCategory}
+                  error={produceCategoryError}
                 >
                   <MenuItem value={""}></MenuItem>
                   <MenuItem value={"manager"}>ניהולי</MenuItem>
@@ -156,6 +194,7 @@ function EditProduceForm(props) {
                   onChange={produceStatusHandler}
                   className="select-field-form"
                   value={produceStatus}
+                  error={produceStatusError}
                 >
                   <MenuItem value={""}></MenuItem>
                   <MenuItem value={"active"}>פעיל</MenuItem>
@@ -197,6 +236,7 @@ function EditProduceForm(props) {
                 variant="filled"
                 onChange={produceContentHandler}
                 value={produceContent}
+                error={produceContentError}
               />
 
               <Button
